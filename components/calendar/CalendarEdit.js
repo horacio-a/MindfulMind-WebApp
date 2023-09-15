@@ -66,7 +66,19 @@ export default function CalendarEdit({ ActiveConfig, CalendarDataForEdit, setCal
 
         }
     }, [EditCalendarTasks])
+    useEffect(() => {
+        if (CalendarDataForEdit) {
+            console.log(CalendarDataForEdit)
+            let fecha = new Date(CalendarDataForEdit.date);
+            let diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+            let diaDeLaSemana = diasSemana[fecha.getUTCDay()];
+            let meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+            let mes = meses[fecha.getUTCMonth()];
+            let textoFormateado = diaDeLaSemana + ' ' + fecha.getUTCDate() + ', ' + mes + ' ' + fecha.getUTCFullYear();
+            setFecha(textoFormateado)
+        }
 
+    }, [CalendarDataForEdit])
     useEffect(() => {
         if (CalendarDataForEdit) {
 
@@ -258,6 +270,7 @@ export default function CalendarEdit({ ActiveConfig, CalendarDataForEdit, setCal
 
 
                         </div>
+
                     </div>
                     <div className="conteinerSwitch">
                         <div className="titleSwitch">
@@ -277,6 +290,8 @@ export default function CalendarEdit({ ActiveConfig, CalendarDataForEdit, setCal
                         </div>
                         <Switch value={AllDay} style={AllDay ? { backgroundColor: ColorSelect } : {}} onChange={() => { AllDay ? setAllDay(false) : setAllDay(true) }} />
                     </div>
+
+
 
                     {
                         AllDay ? <div className="titleFecha">{Fecha}</div>
