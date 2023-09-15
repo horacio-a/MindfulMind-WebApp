@@ -8,7 +8,7 @@ import Main from "@/components//Main"
 import UseCryptoJs from "@/context/UseCryptoJs"
 import axios from "axios"
 import { getData } from "@/context/getData"
-
+import Loading from "./Loading"
 
 export default function Page() {
     const [sidebar, setSidebar] = useState(false)
@@ -34,16 +34,22 @@ export default function Page() {
                     setcalendarData(data.CalendarData)
                     setroutineData(data.TasksData)
                     setTextData(data.TextData)
-                    setloading(false)
+                    setTimeout(() => {
+                        setloading(false)
+                    }, 1000);
 
                 } else {
                     window.localStorage.removeItem('MindfulmindSession')
                     setsession(false)
-                    setloading(false)
+                    setTimeout(() => {
+                        setloading(false)
+                    }, 1000);
                 }
             } else {
                 setsession(false)
-                setloading(false)
+                setTimeout(() => {
+                    setloading(false)
+                }, 1000);
             }
         }
         sesionAuth()
@@ -90,7 +96,7 @@ export default function Page() {
                                 </>
                         }
                     </>
-                    : <></>
+                    : <Loading />
             }
 
 
