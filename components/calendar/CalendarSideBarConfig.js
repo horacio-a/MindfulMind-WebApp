@@ -23,10 +23,6 @@ export default function CalendarSideBarConfigComponet({ CalendarSideBarConfig, s
         setName(ConfigSideBarData.Title === 'Notificacion' ? NotificacionTime : RepeatTime)
     }, [CalendarSideBarConfig])
 
-    useEffect(() => {
-        console.log(name)
-    }, [name])
-
 
     return (
         <div className={`CalendarSideBar ${CalendarSideBarConfig ? 'active' : 'desactive'} `}>
@@ -46,7 +42,7 @@ export default function CalendarSideBarConfigComponet({ CalendarSideBarConfig, s
                                 ConfigSideBarData.Data.map((item) => {
 
                                     return (
-                                        <div className="unitListConfig">
+                                        <div className="unitListConfig" key={item}>
                                             <div className="conteinerCheck" onClick={() => {
 
                                                 if (ConfigSideBarData.Title === 'Notificacion') {
