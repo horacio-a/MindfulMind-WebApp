@@ -1,5 +1,3 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
 import Routine from "./MainPages/Routine"
 import Calendar from "./MainPages/Calendar"
 import Text from "./MainPages/Text"
