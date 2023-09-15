@@ -1,107 +1,1423 @@
-:root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
-
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
-
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
+body {
+  margin: 0%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.main {
+  background-color: #1e1e1e;
+  width: 100vw;
+  height: 100vh;
+}
 
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
+header {
+  width: 100%;
+  height: 6.5%;
+  box-shadow: inset 0 -1px 0 0 #5f6368;
+  display: flex;
+  align-items: center;
+}
 
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
+.leftSide {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
 
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
+.rightSide {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.conteinerBurgerMenu {
+  cursor: pointer;
+  margin-left: 3.5%;
+  height: 5vh;
+  width: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all .25s;
+}
+
+.conteinerBurgerMenu:hover {
+  background-color: rgba(232, 234, 237, .08);
+
+}
+
+
+.appName {
+  color: #fff;
+  margin-left: 1%;
+}
+
+.appName::selection {
+  background: none;
+}
+
+.conteinerPicture {
+  cursor: pointer;
+  margin-right: 3.5%;
+  height: 4vh;
+  width: 4vh;
+  border: 2px #fff solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.profielPicture {
+  height: 80%;
+  width: 80%;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: all .5s;
+}
+
+.conteinerPicture:hover .profielPicture {
+  display: none;
+}
+
+.Setting {
+  display: none;
+}
+
+.conteinerPicture:hover .Setting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 80%;
+  border-radius: 50%;
+  background-color: #5f6368;
+}
+
+
+
+.reloadIcon.NotAnimated {
+  color: #fff;
+  margin-right: 2%;
+  cursor: pointer;
+}
+
+.reloadIcon.Animated {
+  color: #fff;
+  margin-right: 2%;
+  animation: reloadRotate 1.5s infinite;
+}
+
+@keyframes reloadRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
+
+
+.Content {
+  width: 100%;
+  height: 93.5vh;
+  display: flex;
+
+}
+
+.Sidebar.Active {
+  width: 12.5%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all .25s;
+
+}
+
+.Sidebar.Desactive {
+  width: 4%;
+  height: 100%;
+  transition: all .25s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.tab.active {
+  background-color: #5f6368;
+}
+
+
+.Sidebar.Active .tab {
+  cursor: pointer;
+
+  margin-top: 5%;
+  border-radius: 15px;
+  width: 95%;
+  height: 7.5%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Sidebar.Desactive .tab {
+  cursor: pointer;
+  margin-top: 5%;
+  width: 90%;
+  height: 7.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+
+}
+
+.TabIconConteiner {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Sidebar.Active .TextTab {
+  color: #fff;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Sidebar.Desactive .TextTab {
+  display: none;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.MainContent.Active {
+  width: 87.5%;
+  height: 100%;
+  transition: all .25s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.MainContent.Desactive {
+  width: 96%;
+  height: 100%;
+  transition: all .25s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.RoutineConteiner {
+  width: 50%;
+  height: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.conteinerData {
+  width: 40%;
+  height: 90%;
+  border: 2px solid #5f6368;
+  border-radius: 10px;
+}
+
+
+
+.conteinerDragble {
+  width: 100%;
+  height: 87.5%;
+  overflow-y: scroll;
+
+
+}
+
+/* width */
+.conteinerDragble::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 15px;
+
+}
+
+/* Track */
+.conteinerDragble::-webkit-scrollbar-track {
+  border-radius: 15px;
+}
+
+/* Handle */
+.conteinerDragble::-webkit-scrollbar-thumb {
+  background: #5f6368;
+  border-radius: 15px;
+}
+
+.Dragbletitle {
+  color: #fff;
+  text-align: center;
+  width: 75%;
+}
+
+.simple-drag {
   margin: 0;
+  padding: 0;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+.simple-drag-row {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.RoutineDataColumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.iconDraglist {
+  cursor: pointer;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.test {
+  background-color: #fff;
+}
+
+.conteinerAddTask {
+  width: 100%;
+  height: 12.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconAdd {
+  margin-right: 2.5%;
+}
+
+.btnAddTasks {
+  cursor: pointer;
+  width: 85%;
+  height: 40%;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.conteinerInputadd {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputAdd {
+  margin-left: 17%;
+  width: 60%;
+  height: 40%;
+  background: none;
+  border: none;
+  border-bottom: #fff 1px solid;
+  text-align: center;
+  color: #fff;
+  font-size: 1.75vh;
+}
+
+.inputAdd:focus {
+  outline: none;
+}
+
+.conteinericonInputAdd {
+  width: 8.5%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.iconInputadd {
+  cursor: pointer;
+}
+
+
+.conteinerSave {
+  width: 100%;
+  height: 12.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnSave {
+  color: #fff;
+  border: 1px #fff solid;
+  width: 45%;
+  height: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px;
+}
+
+.btnSaveDisabled {
+  color: #5f6368;
+  border: 1px #5f6368 solid;
+  width: 45%;
+  height: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px;
+}
+
+
+.btnSave:hover {
+  color: #1e1e1e;
+  border: 1px #fff solid;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.RoutineRightSide {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.conteinerPorcentaje {
+  width: 100%;
+  height: 40%;
+  border: 2px solid #5f6368;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.ConteinerNumber {
+  width: 65%;
+  height: 35%;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-top: 7.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 4vh;
+
+}
+
+.TitlePorcentaje {
+  color: #fff;
+  font-size: 2.5vh;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainLogin {
+  background-color: #1e1e1e;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.conteinerForm {
+  width: 45%;
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: #fff 2px solid;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.conteinerForm .login {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.conteinerForm .register {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.conteinerForm .conteinerTexto {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background-color: #fff;
+  transition: all 0.5s;
+}
+
+
+.conteinerForm .conteinerTexto.login {
+  transform: translateX(-50%);
+}
+
+.conteinerForm .conteinerTexto.register {
+  transform: translateX(50%);
+}
+
+.btnSendLogin {
+  width: 35%;
+  height: 7.5%;
+  border: #fff 2px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.25s;
+
+
+}
+
+.btnSendLogin:hover {
+  border: #fff 2px solid;
+  background-color: #fff;
+  color: #1e1e1e;
+
+}
+
+
+.FormsInputs {
+  width: 70%;
+  padding-bottom: 3.5%;
+  background: none;
+  border: none;
+  border-bottom: #fff 2px solid;
+  text-align: center;
+  color: #fff;
+  font-size: 1.75vh;
+  margin-bottom: 10%;
+}
+
+.FormsInputs:focus {
+  outline: none;
+}
+
+.FormsInputs::placeholder {
+  color: rgba(245, 240, 240, 0.75);
+}
+
+.TextActionForm {
+  width: auto;
+  height: 6.5%;
+  color: rgba(245, 240, 240, 0.75);
+  transition: all 0.25s;
+  cursor: pointer;
+  font-size: 1.55vh;
+}
+
+.TextActionForm:hover {
+  color: #fff;
+}
+
+.conteinerPassword {
+  width: 100%;
+  display: flex;
+}
+
+
+.conteinerIconPassword {
+  width: 15%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.errmsg {
+  margin-top: 2.5%;
+  width: 70%;
+  height: 7.5%;
+  color: #fff;
+  text-align: center;
+}
+
+.conteinerForgetPassword {
+  transform: translateX(100%);
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.conteinerForgetPassword.active {
+  transform: translateX(0%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.titleForgotPassword {
+  font-size: 2.5vh;
+  color: #1e1e1e;
+  margin-bottom: 5%;
+
+}
+
+.FormsInputsBlack {
+  width: 50%;
+  padding-bottom: 1.5%;
+  background: none;
+  border: none;
+  border-bottom: #1e1e1e 3px solid;
+  text-align: center;
+  color: #1e1e1e;
+  font-size: 2.15vh;
+  margin-bottom: 5%;
+}
+
+.FormsInputsBlack:focus {
+  outline: none;
+}
+
+.FormsInputsBlack::placeholder {
+  color: rgba(89, 89, 89, 0.75);
+}
+
+.btnSendLoginBlack {
+  width: 30%;
+  height: 7.5%;
+  border: #1e1e1e 2px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #1e1e1e;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.25s;
+  margin-bottom: 2.5%;
+
+}
+
+.btnSendLoginBlack:hover {
+  border: #1e1e1e 2px solid;
+  background-color: #1e1e1e;
+  color: #fff;
+
+}
+
+.TextActionFormBlack {
+  width: auto;
+  height: 6.5%;
+  color: rgba(89, 89, 89, 0.75);
+  transition: all 0.25s;
+  cursor: pointer;
+  font-size: 1.85vh;
+}
+
+
+
+.TextActionFormBlack:hover {
+  color: #1e1e1e;
+}
+
+
+.conteinerRegister {
+  transform: translateX(-100%);
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.conteinerRegister.active {
+  transform: translateX(0%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.conteinerMain {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10%;
+}
+
+.conteinerImg {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+}
+
+.errmsgForgotPassword {
+  width: 70%;
+  height: 5%;
+  color: #fff;
+  text-align: center;
+}
+
+
+
+.CalendarConteiner {
+  width: 75%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.Calendar {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #5f6368;
+  border-radius: 10px;
+  background-color: #1e1e1e;
+  transition: all 0.5s;
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
+
+}
+
+.contentCalendar {
+  width: 55%;
+  height: 90%;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+
+.Calendar.active {
+  border-radius: 10px 0px 0px 10px;
+  transition: all 0.5s;
+
+}
+
+
+.CalendarSideBar.active {
+  width: 35%;
+  height: 100%;
+  border-top: 2px solid #5f6368;
+  border-right: 2px solid #5f6368;
+  border-bottom: 2px solid #5f6368;
+  border-radius: 0px 10px 10px 0px;
+  transform: translateX(100%);
+  position: absolute;
+  transition: all 0.5s;
+}
+
+.CalendarSideBar.desactive {
+  width: 25%;
+  height: 100%;
+  border-top: 2px solid #5f6368;
+  border-right: 2px solid #5f6368;
+  border-bottom: 2px solid #5f6368;
+  border-radius: 0px 10px 10px 0px;
+  transform: translateX(0%);
+  position: absolute;
+  transition: all 0.5s;
+
+
+}
+
+
+.TextConteiner {
+  width: 50%;
+  height: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+
+.editCalendar.active {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 0px 0px 10px;
+  background-color: #1e1e1e;
+  z-index: 5;
+  transition: all 0.5s;
+  position: absolute;
+  transform: translateX(0%);
+
+}
+
+
+.editCalendar.desactive {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 0px 0px 10px;
+  background-color: #1e1e1e;
+  z-index: 5;
+  transition: all 0.5s;
+  position: absolute;
+  transform: translateX(-100%);
+
+}
+
+
+.titleCalendar {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 2.5vh;
+}
+
+.weekDays {
+  width: 100%;
+  height: 7.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.daysOfWeek {
+  height: 100%;
+  width: 14%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.95vh;
+
+}
+
+.ConteinerNumeber {
+  width: 100%;
+  height: 77.5%;
+
+}
+
+.RowCalendar {
+  width: 100%;
+  height: 16.67%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.CalendarNumberConteiner {
+  cursor: pointer;
+  height: 100%;
+  width: 14%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CalendarNumberConteiner.today {
+  height: 100%;
+  width: 14%;
+  color: #1e1e1e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.CalendarNumberConteiner.lowOpacity {
+  opacity: 50%;
+}
+
+.dotTasks {
+  background-color: #fff;
+  width: 0.75vh;
+  height: 0.75vh;
+  border-radius: 100%;
+  margin-left: 15%;
+}
+
+.dotTasks.today {
+  background-color: #1e1e1e;
+  width: 0.75vh;
+  height: 0.75vh;
+  border-radius: 100%;
+  margin-left: 15%;
+}
+
+.dotTasks.lowOpacity {
+  opacity: 50%;
+}
+
+.conteinerEditedContent {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.controlBtns {
+  width: 100%;
+  height: 10%;
+  display: flex;
+
+}
+
+.BtnsEdited {
+  width: 50%;
+  height: 100%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.85vh;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.BtnsEdited:hover {
+  background-color: #5f6368;
+  transition: all 0.25s;
+
+}
+
+.BtnsEdited.left {
+  border-top: #5f6368 2px solid;
+  border-right: #5f6368 1px solid;
+}
+
+.BtnsEdited.rigth {
+  border-top: #5f6368 2px solid;
+  border-left: #5f6368 1px solid;
+
+}
+
+.blockColorPicker.active {
+  width: 100%;
+  height: 10%;
+  overflow: hidden;
+  transition: all 0.5s;
+
+}
+
+.blockColorPicker.desactive {
+  width: 100%;
+  height: 0%;
+  overflow: hidden;
+  transition: all 0.5s;
+
+
+}
+
+.conteinerColorPiker.active {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.conteinerColorPiker.desactive {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+
+
+
+.ConteinerTitleInput {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+
+.inputTitle {
+  margin-left: 2.5%;
+  width: 45%;
+  height: 55%;
+  background: none;
+  border: none;
+  border-bottom: #fff 2px solid;
+  text-align: start;
+  color: #fff;
+  font-size: 1.75vh;
+  margin-right: 35%;
+}
+
+.inputTitle:focus {
+  outline: none;
+}
+
+.BtnColorPicker {
+  width: 3.5vh;
+  height: 3.5vh;
+  background-color: #5f6368;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.ConteinerBtn {
+  width: 7.5%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.conteinerTime {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.TitleSideBar {
+  color: #fff;
+  width: 80%;
+  height: 10%;
+  margin-left: 10%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 2px solid #fff;
+}
+
+.TitleSideBar .numeber {
+  font-size: 2.25vh;
+}
+
+.TitleSideBar .text {
+  font-size: 1.85vh;
+}
+
+
+.continerWithoutInfoSideBar {
+  width: 100%;
+  height: 80%;
+
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+.continerInfoSideBar {
+  width: 100%;
+  height: 80%;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+
+/* width */
+.continerInfoSideBar::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 15px;
+
+}
+
+/* Track */
+.continerInfoSideBar::-webkit-scrollbar-track {
+  border-radius: 15px;
+}
+
+/* Handle */
+.continerInfoSideBar::-webkit-scrollbar-thumb {
+  background: #5f6368;
+  border-radius: 15px;
+}
+
+.BtnBack {
+  width: 100%;
+  height: 10%;
+  border-top: #5f6368 2px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.55vh;
+  transition: all 0.5s;
+  border-radius: 0px 0px 10px 0px;
+}
+
+.BtnBack:hover {
+  background-color: #5f6368;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.BtnBack svg path {
+  stroke: #fff;
+}
+
+.sidebarCalendarTasks {
+  margin-left: 10%;
+  width: 90%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+.time {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.separador {
+  margin-left: 5%;
+
+  width: 3%;
+  height: 50%;
+  border-radius: 10px;
+}
+
+.titleCalendarTask {
+  width: 57%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+.conteinerSwitch {
+  width: 90%;
+  height: 5%;
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.titleSwitch {
+  width: auto;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #fff;
+  font-size: 1.9vh;
+}
+
+.timePicker {
+  width: 75%;
+  height: 30%;
+  color: aqua;
+}
+
+.timePicker::placeholder {
+  color: #1e1e1e;
+}
+
+.titleFecha {
+  color: #fff;
+  font-size: 2.25vh;
+  margin-bottom: 2.5%;
+}
+
+.ConteinerConfig {
+  width: 90%;
+  height: 40%;
+
+}
+
+.ConteinerConfig.space-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ConteinerDescription {
+  width: 100%;
+  height: 25%;
+  color: #fff;
+  font-size: 2.25vh;
+  display: flex;
+  align-items: center;
+}
+
+.inputConfigCalendar {
+  border: none;
+  background-color: #1e1e1e;
+  color: #fff;
+  margin-left: 2.5%;
+}
+
+.inputConfigCalendar:focus {
+  outline: none;
+}
+
+.btnNotification {
+  margin-left: 2.5%;
+  font-size: 1.85vh;
+  cursor: pointer;
+}
+
+.conteinerList {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.unitListConfig {
+  width: 80%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+}
+
+.conteinerCheck {
+  width: 12%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.titleConfig {
+  color: #fff;
+  margin-left: 2.5%;
+  cursor: pointer;
+
+}
+
+.ErrorTitle.descative {
+  width: 100%;
+  height: 0%;
+  transition: all 0.2s;
+}
+
+.ErrorTitle.active {
+  width: 100%;
+  height: 5%;
+  transition: all 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.ConteinerGroupedTask {
+  width: 100%;
+  height: 35%;
+}
+
+.titleGroupedTask {
+  color: #fff;
+  height: auto;
+  display: flex;
+  align-items: center;
+  font-size: 1.9vh;
+  margin-left: 2.5%;
+}
+
+.ConteinerGroupedTask .conteinerTitle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  font-size: 2.25vh;
+
+}
+
+.conteinerBtnsGroupedTask {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.BtnGroupedTask.active {
+  width: 20%;
+  height: 45%;
+  background-color: #fff;
+  border-radius: 7.5px;
+  color: #1e1e1e;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.55vh;
+  cursor: pointer;
+  margin-right: 5%;
+  border: #fff 2px solid;
+
+}
+
+.BtnGroupedTask.desactive {
+  width: 20%;
+  height: 45%;
+  background: none;
+  border: #fff 2px solid;
+  border-radius: 7.5px;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.55vh;
+  cursor: pointer;
+  margin-right: 5%;
+}
+
+.conteinerEditRelative {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.conteinerDelete.active {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.conteinerDeleteLabel {
+  position: absolute;
+  width: 40%;
+  height: 25%;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+
+}
+
+.titleDelete {
+  width: 100%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+.deleteBtn {
+  width: 50%;
+  height: 100%;
+  border-top: 2px solid #5f6368;
+  border-right: 1px solid #5f6368;
+  cursor: pointer;
+  border-radius: 0px 0px 0px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.NotDeleteBtn {
+  width: 50%;
+  height: 100%;
+  border-top: 2px solid #5f6368;
+  border-left: 1px solid #5f6368;
+  cursor: pointer;
+  border-radius: 0px 0px 10px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ConteinerBtnDelete {
+  width: 100%;
+  height: 25%;
+  display: flex;
+
 }
